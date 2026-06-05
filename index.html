@@ -1,35 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prem | Medical Professional</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prem Tilokani | Links</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      min-height: 100vh;
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f1f5f9;
+      position: relative;
+    }
+
+    /* Darken background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 0;
+    }
+
+    /* MAIN PAGE STYLES */
+    #main-page {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 0 10px 0;
+    }
+
+    .header img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .divider-vertical {
+      width: 1px;
+      height: 40px;
+      background-color: white;
+      margin: 0 15px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .divider-horizontal {
+      width: 80%;
+      max-width: 500px;
+      height: 1px;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 10px auto 30px auto;
+    }
+
+    .bio-section {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .bio-section h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #e2e8f0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .bio-section p {
+      font-size: 0.95rem;
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .links a {
+      display: block;
+      background: rgba(255, 255, 255, 0.1);
+      color: #f8fafc;
+      text-decoration: none;
+      padding: 15px 30px;
+      margin: 10px 0;
+      border-radius: 12px;
+      width: 250px;
+      text-align: center;
+      font-size: 1.1rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    }
+
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: #111827;
+      transform: translateY(-2px);
+    }
+
+    /* SECRET PAGE STYLES */
+    #secret-page {
+      display: none; /* Hidden by default */
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: 40px auto;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+    }
+
+    #secret-page img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f8fafc;
+      margin: 20px 0;
+    }
+
+    #secret-page ul {
+      text-align: left;
+      display: inline-block;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* HIDDEN BUTTON */
+    #secret-trigger {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      cursor: default;
+      background: transparent;
+      z-index: 1000;
+    }
+  </style>
 </head>
 <body>
-    <div class="container" id="main-content">
-        <header>
-            <h1>Prem</h1>
-            <h2>Medical Professional</h2>
-        </header>
-        
-        <section class="bio">
-            <h3>Medical Bio</h3>
-            <p>[Insert your short, to-the-point medical bio here. Example: Dedicated medical professional with expertise in patient care, diagnostic analysis, and clinical research. Committed to evidence-based practices and continuous learning.]</p>
-        </section>
 
-        <section class="socials">
-            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-            <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
-            <a href="https://wa.me/yourwhatsappnumber" target="_blank">WhatsApp</a>
-            <a href="mailto:your@email.com">Email</a>
-            <a href="https://github.com/blurry-eyez" target="_blank">GitHub</a>
-        </section>
+  <!-- ================= MAIN PAGE ================= -->
+  <div id="main-page">
+    <div class="header">
+      <img src="logo.jpg" alt="Logo" />
+      <div class="divider-vertical"></div>
+      <h1>Prem Tilokani</h1>
     </div>
 
-    <div id="secret-trigger" onclick="promptPassword()"></div>
+    <div class="divider-horizontal"></div>
 
-    <script src="script.js"></script>
+    <div class="bio-section">
+      <h2>Medical Professional</h2>
+      <p>Dedicated to evidence-based clinical practices, precise diagnostic analysis, and compassionate patient care. Committed to continuous learning and excellence in the medical field.</p>
+    </div>
+
+    <div class="links">
+      <a href="https://instagram.com/prem_tilokani" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/prem-tilokani-8b85b624b" target="_blank">LinkedIn</a>
+      <a href="https://github.com/blurry-eyez" target="_blank">GitHub</a>
+      <a href="https://www.snapchat.com/add/prem.3618" target="_blank">Snapchat</a>
+      <a href="https://wa.me/916351929739" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+
+
+  <!-- ================= SECRET PAGE ================= -->
+  <div id="secret-page">
+    <h1>🌸 Lotus 🌸</h1>
+    <!-- Replace cute_photo.jpg with your actual image file name -->
+    <img src="cute_photo.jpg" alt="Lotus">
+    <h2>Things she likes:</h2>
+    <ul>
+      <li>Listening to music</li>
+      <li>Spending time together</li>
+      <li>[Add more likes here]</li>
+      <li>[Add more likes here]</li>
+    </ul>
+  </div>
+
+
+  <!-- ================= INVISIBLE TRIGGER ================= -->
+  <div id="secret-trigger" onclick="checkPassword()"></div>
+
+
+  <!-- ================= SIMPLE PASSWORD LOGIC ================= -->
+  <script>
+    function checkPassword() {
+        const pwd = prompt(""); // Blank prompt
+        if (!pwd) return;
+
+        // TG90dXNAMjEwNTA2 is "Lotus@210506" in Base64 so it's not totally obvious in the code
+        const hiddenPass = atob("TG90dXNAMjEwNTA2");
+
+        if (pwd === hiddenPass) {
+            // Hide the main page
+            document.getElementById('main-page').style.display = 'none';
+            // Show the secret page
+            document.getElementById('secret-page').style.display = 'block';
+        } 
+        // If wrong password, it just fails silently and does nothing
+    }
+  </script>
+
 </body>
 </html>
