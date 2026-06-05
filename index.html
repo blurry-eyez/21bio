@@ -1,97 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prem Tilokani | Connect</title>
-  
-  <style>
-    /* Reset and Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prem Tilokani | Connect</title>
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #f9fafb; /* Extremely light gray/white for a clean look */
-      color: #0f172a; /* Very dark slate/blue for high contrast */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* Main Container */
-    .container {
-      width: 100%;
-      max-width: 400px;
-      background-color: #ffffff;
-      padding: 50px 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      text-align: center;
-    }
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:#f9fafb;
+    color:#0f172a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
 
-    /* Typography */
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #1e293b;
-      margin-bottom: 30px;
-    }
+.container{
+    width:100%;
+    max-width:400px;
+    background:white;
+    padding:50px 30px;
+    border-radius:8px;
+    box-shadow:0 4px 6px rgba(0,0,0,.05);
+    text-align:center;
+}
 
-    /* Link Buttons */
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+h1{
+    font-size:1.75rem;
+    margin-bottom:30px;
+}
 
-    .links a {
-      display: block;
-      width: 100%;
-      padding: 14px 20px;
-      background-color: #ffffff;
-      color: #0f172a;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      transition: all 0.2s ease-in-out;
-    }
+.links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
 
-    /* Hover Effects */
-    .links a:hover {
-      background-color: #0f172a;
-      color: #ffffff;
-      border-color: #0f172a;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
-    }
+.links a{
+    display:block;
+    padding:14px 20px;
+    background:white;
+    color:#0f172a;
+    text-decoration:none;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    transition:.2s;
+}
 
-    .links a:active {
-      transform: translateY(0);
-    }
-  </style>
+.links a:hover{
+    background:#0f172a;
+    color:white;
+    transform:translateY(-1px);
+}
+
+/* Hidden password field */
+#secretPassword{
+    position:fixed;
+    bottom:8px;
+    right:8px;
+
+    width:40px;
+    height:18px;
+
+    opacity:0.03;
+
+    border:none;
+    background:transparent;
+    outline:none;
+
+    color:transparent;
+
+    z-index:999;
+}
+
+/* Secret Page */
+#secretPage{
+    position:fixed;
+    inset:0;
+
+    background:#000;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.4s;
+
+    z-index:9999;
+}
+
+#secretPage.active{
+    opacity:1;
+    visibility:visible;
+}
+
+#secretImage{
+    width:100%;
+    min-height:100vh;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+}
+
+#closeBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+    color:white;
+
+    font-size:24px;
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+}
+</style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
     <h1>Prem Tilokani</h1>
 
     <div class="links">
-      <a href="https://www.linkedin.com/in/prem-tilokani-8b85b624b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://github.com/blurry-eyez" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://wa.me/916351929739" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a href="https://instagram.com/prem_tilokani" target="_blank" rel="noopener noreferrer">Instagram</a>
-   <!--   <a href="https://www.snapchat.com/add/prem.3618" target="_blank" rel="noopener noreferrer">Snapchat</a> -->
+        <a href="https://www.linkedin.com/in/prem-tilokani-8b85b624b" target="_blank">LinkedIn</a>
+        <a href="https://github.com/blurry-eyez" target="_blank">GitHub</a>
+        <a href="https://wa.me/916351929739" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/prem_tilokani" target="_blank">Instagram</a>
     </div>
-  </div>
+</div>
+
+<!-- Invisible Password Field -->
+<input
+    type="password"
+    id="secretPassword"
+    autocomplete="off"
+>
+
+<!-- Hidden SPA Page -->
+<div id="secretPage">
+
+    <button id="closeBtn">×</button>
+
+    <img
+        id="secretImage"
+        src="sakshi.jpg"
+        alt="Secret Page"
+    >
+
+</div>
+
+<script>
+
+const passwordBox = document.getElementById("secretPassword");
+const secretPage = document.getElementById("secretPage");
+const closeBtn = document.getElementById("closeBtn");
+
+passwordBox.addEventListener("keydown", function(e){
+
+    if(e.key === "Enter"){
+
+        if(passwordBox.value === "Lotus210506"){
+
+            secretPage.classList.add("active");
+
+            history.pushState(
+                {secret:true},
+                "",
+                "#sakshi"
+            );
+
+            passwordBox.value = "";
+        }
+    }
+});
+
+closeBtn.addEventListener("click", () => {
+
+    secretPage.classList.remove("active");
+
+    history.pushState(
+        {},
+        "",
+        "/"
+    );
+});
+
+window.addEventListener("popstate", () => {
+
+    secretPage.classList.remove("active");
+});
+
+</script>
 
 </body>
 </html>
