@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <h2>Encrypt Your Secret Page</h2>
+    <p>1. Type your desired password below.</p>
+    <input type="text" id="passcode" placeholder="Enter secure password">
+    
+    <p>2. Edit the HTML below with her cute photo and what she likes.</p>
+    <textarea id="htmlInput" rows="15" cols="80">
+<div class="secret-container">
+    <h1>🌸 Lotus 🌸</h1>
+    <img src="cute_photo.jpg" alt="Lotus">
+    <h2>Things she likes:</h2>
+    <ul>
+        <li>Listening to music</li>
+        <li>Spending time together</li>
+        <li>[Add more likes here]</li>
+    </ul>
+</div>
+    </textarea>
+    <br><br>
+    <button onclick="encrypt()">Generate Encrypted String</button>
+    
+    <p>3. Copy the string below and paste it into `script.js` as the `encryptedData` variable.</p>
+    <textarea id="output" rows="5" cols="80"></textarea>
+
+    <script>
+        function encrypt() {
+            const pwd = document.getElementById('passcode').value;
+            const html = document.getElementById('htmlInput').value;
+            if(!pwd) return alert("Need a password!");
+            const encrypted = CryptoJS.AES.encrypt(html, pwd).toString();
+            document.getElementById('output').value = encrypted;
+        }
+    </script>
+</body>
+</html>
