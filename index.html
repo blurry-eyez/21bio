@@ -11,22 +11,10 @@
       padding: 0;
       font-family: "Segoe UI", sans-serif;
       min-height: 100vh;
-      background: url('bg.jpg') no-repeat center center fixed;
-      background-size: cover;
+      /* Sleek dark gradient instead of a background image */
+      background: linear-gradient(135deg, #111827, #1e293b);
       color: #f1f5f9;
       position: relative;
-    }
-
-    /* Darken background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 0;
     }
 
     /* MAIN PAGE STYLES */
@@ -44,6 +32,7 @@
       align-items: center;
       justify-content: center;
       padding: 30px 0 10px 0;
+      margin-top: 5vh;
     }
 
     .header img {
@@ -70,34 +59,7 @@
       max-width: 500px;
       height: 1px;
       background-color: rgba(255, 255, 255, 0.5);
-      margin: 10px auto 30px auto;
-    }
-
-    .bio-section {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px 30px;
-      border-radius: 12px;
-      max-width: 500px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 30px;
-      line-height: 1.6;
-    }
-
-    .bio-section h2 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      color: #e2e8f0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .bio-section p {
-      font-size: 0.95rem;
-      margin: 0;
-      color: #cbd5e1;
+      margin: 10px auto 40px auto;
     }
 
     .links {
@@ -188,11 +150,6 @@
 
     <div class="divider-horizontal"></div>
 
-    <div class="bio-section">
-      <h2>Medical Professional</h2>
-      <p>Dedicated to evidence-based clinical practices, precise diagnostic analysis, and compassionate patient care. Committed to continuous learning and excellence in the medical field.</p>
-    </div>
-
     <div class="links">
       <a href="https://instagram.com/prem_tilokani" target="_blank">Instagram</a>
       <a href="https://www.linkedin.com/in/prem-tilokani-8b85b624b" target="_blank">LinkedIn</a>
@@ -228,7 +185,7 @@
         const pwd = prompt(""); // Blank prompt
         if (!pwd) return;
 
-        // TG90dXNAMjEwNTA2 is "Lotus@210506" in Base64 so it's not totally obvious in the code
+        // TG90dXNAMjEwNTA2 is "Lotus@210506" in Base64
         const hiddenPass = atob("TG90dXNAMjEwNTA2");
 
         if (pwd === hiddenPass) {
@@ -237,7 +194,7 @@
             // Show the secret page
             document.getElementById('secret-page').style.display = 'block';
         } 
-        // If wrong password, it just fails silently and does nothing
+        // Fails silently if wrong
     }
   </script>
 
